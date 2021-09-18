@@ -9,3 +9,5 @@ const primaryTextColor = Color(0xFFFFFFFF);
 
 //Body colors
 const primaryColor = Color(0xFF2A0D2E);
+const secundaryColor = Color(0xFF53183B);
+const ligthColor = Color(0xFFFA5075);

@@ -1,6 +1,6 @@
 # riverpod_nba
 
-This proyect contains my skill improvments to code with riverpod and firebase
+This proyect contain my skill improvments to code with riverpod and firebase
 
 ## Features
 

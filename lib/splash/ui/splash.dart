@@ -3,7 +3,7 @@ import 'package:riverpod_nba/settings/colors.dart';
 import 'package:riverpod_nba/settings/styles.dart';
 
 class SplashPage extends StatefulWidget {
-  SplashPage({Key? key}) : super(key: key);
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
   _SplashPageState createState() => _SplashPageState();
@@ -14,7 +14,6 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        //color: splashBackgroundColorPrimary,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: gradient,
@@ -49,7 +48,7 @@ class _SplashPageState extends State<SplashPage> {
             )
           ],
         ),
-        onTap: () {},
+        onTap: () => Navigator.of(context).pushNamed("/TeamList"),
       ),
     );
   }

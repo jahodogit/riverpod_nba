@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod_nba/settings/colors.dart';
+import 'package:riverpod_nba/settings/routes.dart';
 import 'package:riverpod_nba/splash/ui/splash.dart';
 
 void main() {
@@ -13,11 +15,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'GAAMETIIME',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: SplashPage(),
+          primarySwatch: Colors.blue,
+          scaffoldBackgroundColor: primaryColor,
+          appBarTheme: const AppBarTheme(backgroundColor: primaryColor)),
+      home: const SplashPage(),
+      routes: buildAppRoutes(),
     );
   }
 }
