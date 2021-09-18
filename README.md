@@ -4,9 +4,9 @@ This proyect contains my skill improvments to code with riverpod and firebase
 
 ## Features
 
-- [x]Nullsafety
-- [x]Flutter 2.5.0
-- [x]Firebase
-- [x]Riverpod state managment :sparkles:
+- :white_check_mark: Nullsafety
+- :white_check_mark: Flutter 2.5.0
+- :white_check_mark: Firebase
+- :white_check_mark: Riverpod state managment :sparkles:
 
 
