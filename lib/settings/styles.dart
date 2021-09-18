@@ -12,3 +12,11 @@ const fullStackDevLogo = Text(
   "FULLSTACK | DEV",
   style: TextStyle(color: Colors.white),
 );
+
+const titleStyle =
+    TextStyle(color: ligthColor, fontWeight: FontWeight.bold, fontSize: 20);
+
+const appBarStyle = AppBarTheme(
+    backgroundColor: primaryColor,
+    actionsIconTheme: IconThemeData(color: ligthColor),
+    iconTheme: IconThemeData(color: ligthColor));

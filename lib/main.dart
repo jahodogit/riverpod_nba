@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_nba/settings/colors.dart';
 import 'package:riverpod_nba/settings/routes.dart';
+import 'package:riverpod_nba/settings/styles.dart';
 import 'package:riverpod_nba/splash/ui/splash.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: primaryColor,
-          appBarTheme: const AppBarTheme(backgroundColor: primaryColor)),
+          appBarTheme: appBarStyle),
       home: const SplashPage(),
       routes: buildAppRoutes(),
     );
