@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_nba/settings/colors.dart';
 import 'package:riverpod_nba/settings/styles.dart';
@@ -23,27 +22,29 @@ class _TeamCardState extends State<TeamCard> {
       color: secundaryColor,
       child: Container(
         padding: const EdgeInsets.all(20),
-        height: 130,
+        height: 150,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  widget.team.fullName,
-                  style: titleStyle,
-                ),
-                const Text(
-                  "Descripcion un poco mas larga del objeto",
-                  style: TextStyle(color: Colors.white, fontSize: 15),
-                ),
-                const Icon(
-                  Icons.arrow_forward_sharp,
-                  color: ligthColor,
-                )
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    widget.team.fullName,
+                    style: titleStyle,
+                  ),
+                  const Text(
+                    "Descripcion un poco mas larga del objeto",
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                  const Icon(
+                    Icons.arrow_forward_sharp,
+                    color: ligthColor,
+                  )
+                ],
+              ),
             ),
             Image.network(
               widget.team.logo,

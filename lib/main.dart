@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:riverpod_nba/settings/colors.dart';
 import 'package:riverpod_nba/settings/routes.dart';
 import 'package:riverpod_nba/settings/styles.dart';
 import 'package:riverpod_nba/splash/ui/splash.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: primaryColor,
           appBarTheme: appBarStyle),
-      home: const SplashPage(),
+      home: SplashPage(),
       routes: buildAppRoutes(),
     );
   }

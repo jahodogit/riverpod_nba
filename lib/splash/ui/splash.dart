@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_nba/settings/colors.dart';
 import 'package:riverpod_nba/settings/styles.dart';
+import 'package:riverpod_nba/teams/models/team.dart';
+import 'package:riverpod_nba/teams/riverpod/team_state.dart';
 
-class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
+final teamProvider =
+    StateNotifierProvider<TeamProvider, List<Team>>((ref) => TeamProvider());
 
+class SplashPage extends ConsumerWidget {
   @override
-  _SplashPageState createState() => _SplashPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final teams = ref.watch(teamProvider);
 
-class _SplashPageState extends State<SplashPage> {
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -19,21 +20,26 @@ class _SplashPageState extends State<SplashPage> {
         decoration: gradient,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Icon(
+          children: <Widget>[
+            const Icon(
               Icons.sports_basketball,
               size: 100,
               color: Colors.white,
             ),
-            Text("GAAMETIIME",
+            const Text("GAAMETIIME",
                 style: TextStyle(
                   color: primaryTextColor,
                   fontSize: 40,
                 )),
-            Text(
+            const Text(
               "CONNECT WITH YOUR REALY",
               style: TextStyle(color: primaryTextColor),
-            )
+            ),
+            teams.isEmpty
+                ? const CircularProgressIndicator(
+                    color: primaryColor,
+                  )
+                : const Text("OK!")
           ],
         ),
       ),
