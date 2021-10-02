@@ -8,10 +8,29 @@ import 'package:riverpod_nba/teams/riverpod/team_state.dart';
 final teamProvider =
     StateNotifierProvider<TeamProvider, List<Team>>((ref) => TeamProvider());
 
-class SplashPage extends ConsumerWidget {
+class SplashPage extends ConsumerStatefulWidget {
+  SplashPage({Key? key}) : super(key: key);
+
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  SplashPageState createState() => SplashPageState();
+}
+
+class SplashPageState extends ConsumerState<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
+    ref.read(teamProvider.notifier).syncTeams();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final teams = ref.watch(teamProvider);
+
+    ref.listen(teamProvider, (List data) {
+      if (data.isNotEmpty) {
+        Navigator.of(context).pushNamed("/TeamList");
+      }
+    });
 
     return Scaffold(
       body: Container(
@@ -36,25 +55,28 @@ class SplashPage extends ConsumerWidget {
               style: TextStyle(color: primaryTextColor),
             ),
             teams.isEmpty
-                ? const CircularProgressIndicator(
-                    color: primaryColor,
+                ? const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
                   )
-                : const Text("OK!")
+                : const Icon(
+                    Icons.code_rounded,
+                    color: Colors.white,
+                  )
           ],
         ),
       ),
-      floatingActionButton: GestureDetector(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: const [
-            fullStackDevLogo,
-            Icon(
-              Icons.coffee_maker,
-              color: Colors.white,
-            )
-          ],
-        ),
-        onTap: () => Navigator.of(context).pushNamed("/TeamList"),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: const [
+          fullStackDevLogo,
+          Icon(
+            Icons.coffee_maker,
+            color: Colors.white,
+          )
+        ],
       ),
     );
   }
